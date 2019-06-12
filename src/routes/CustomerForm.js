@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form,Modal,Input,Radio} from 'antd'
+import {Form,Modal,Input,Radio,Upload,Button,Icon} from 'antd'
 
 class CustomerForm extends React.Component {
 
@@ -45,7 +45,20 @@ class CustomerForm extends React.Component {
                 rules: [{ required: true, message: '请输入密码!' }],
               })(<Input.Password />)}
             </Form.Item>
-           
+            
+            <Form.Item label="头像上传">
+               {getFieldDecorator('upload', {
+                  valuePropName: 'fileList',
+                  getValueFromEvent: this.normFile,
+                })(
+            <Upload name="logo" action="/upload.do" listType="picture">
+              <Button>
+                <Icon type="upload" /> Click to upload
+              </Button>
+            </Upload>,
+          )}
+        </Form.Item>
+
           </Form>
         </Modal>
     );
