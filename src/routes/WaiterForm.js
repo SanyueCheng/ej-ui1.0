@@ -1,7 +1,7 @@
 import React from 'react';
 import {Form,Modal,Input,Upload,Button,Icon} from 'antd'
 
-class CustomerForm extends React.Component {
+class WaiterForm extends React.Component {
 
   render(){
     const formLayout = {
@@ -20,11 +20,11 @@ class CustomerForm extends React.Component {
     // 将表单中没有出现的值做一个双向数据绑定
     getFieldDecorator("id");
     getFieldDecorator("status");
-    getFieldDecorator("phtot");
+    getFieldDecorator("photo");
     return (
       <Modal
           visible={visible}
-          title="添加顾客信息"
+          title="添加员工信息"
           okText="提交"
           onCancel={onCancel}
           onOk={onCreate}
@@ -35,18 +35,23 @@ class CustomerForm extends React.Component {
                 rules: [{ required: true, message: '请输入姓名!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="手机号" >
+            <Form.Item label="电话" >
               {getFieldDecorator('telephone', {
-                rules: [{ required: true, message: '请输入手机号!' }],
+                rules: [{ required: true, message: '请输入电话!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="密码">
+            <Form.Item label="卡号" >
+              {getFieldDecorator('idcard', {
+                rules: [{ required: true, message: '请输入卡号!' }],
+              })(<Input />)}
+            </Form.Item>
+            <Form.Item label="密码" >
               {getFieldDecorator('password', {
                 rules: [{ required: true, message: '请输入密码!' }],
-              })(<Input.Password />)}
+              })(<Input />)}
             </Form.Item>
             
-            <Form.Item label="头像上传">
+            <Form.Item label="图像上传">
                {getFieldDecorator('upload', {
                   valuePropName: 'fileList',
                   getValueFromEvent: this.normFile,
@@ -76,4 +81,4 @@ const mapPropsToFields = (props)=>{
 
 export default Form.create({
   mapPropsToFields
-})(CustomerForm);
+})(WaiterForm);

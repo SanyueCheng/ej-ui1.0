@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form,Modal,Input,Radio,Upload,Button,Icon} from 'antd'
+import {Form,Modal,Input,Upload,Button,Icon} from 'antd'
 
 class ProductForm extends React.Component {
 
@@ -45,7 +45,11 @@ class ProductForm extends React.Component {
                 rules: [{ required: true, message: '请输入价格!' }],
               })(<Input />)}
             </Form.Item>
-           
+            <Form.Item label="类别" >
+              {getFieldDecorator('category_id', {
+                rules: [{ required: true, message: '请输入类别!' }],
+              })(<Input />)}
+            </Form.Item>
             
             <Form.Item label="图像上传">
                {getFieldDecorator('upload', {
