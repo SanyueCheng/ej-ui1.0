@@ -1,7 +1,7 @@
 import React from 'react';
 import {Form,Modal,Input,Upload,Button,Icon} from 'antd'
 
-class ProductForm extends React.Component {
+class WaiterForm extends React.Component {
 
   render(){
     const formLayout = {
@@ -24,30 +24,30 @@ class ProductForm extends React.Component {
     return (
       <Modal
           visible={visible}
-          title="添加产品信息"
+          title="添加员工信息"
           okText="提交"
           onCancel={onCancel}
           onOk={onCreate}
         >
           <Form layout="vertical" {...formLayout}>
-            <Form.Item label="名称" >
-              {getFieldDecorator('name', {
-                rules: [{ required: true, message: '请输入产品名称!' }],
+            <Form.Item label="姓名" >
+              {getFieldDecorator('realname', {
+                rules: [{ required: true, message: '请输入姓名!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="描述" >
-              {getFieldDecorator('description', {
-                rules: [{ required: true, message: '请输入产品描述!' }],
+            <Form.Item label="电话" >
+              {getFieldDecorator('telephone', {
+                rules: [{ required: true, message: '请输入电话!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="价格" >
-              {getFieldDecorator('price', {
-                rules: [{ required: true, message: '请输入价格!' }],
+            <Form.Item label="卡号" >
+              {getFieldDecorator('idcard', {
+                rules: [{ required: true, message: '请输入卡号!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="类别" >
-              {getFieldDecorator('category_id', {
-                rules: [{ required: true, message: '请输入类别!' }],
+            <Form.Item label="密码" >
+              {getFieldDecorator('password', {
+                rules: [{ required: true, message: '请输入密码!' }],
               })(<Input />)}
             </Form.Item>
             
@@ -81,4 +81,4 @@ const mapPropsToFields = (props)=>{
 
 export default Form.create({
   mapPropsToFields
-})(ProductForm);
+})(WaiterForm);
