@@ -5,6 +5,7 @@ import OrderLinePage from './routes/OrderLinePage'
 import CustomerPage from './routes/CustomerPage'
 import OrderPage from './routes/OrderPage'
 import ProductPage from './routes/ProductPage'
+import AddressPage from './routes/AddressPage'
 
 function RouterConfig({ history }) {
   return (
@@ -15,6 +16,7 @@ function RouterConfig({ history }) {
           <Route path="/customer" exact component={CustomerPage} />
           <Route path="/order" exact component={OrderPage} />
           <Route path="/product" exact component={ProductPage} />
+          <Route path="/address" exact component={AddressPage} />
         </Switch>
       </Router>
     
