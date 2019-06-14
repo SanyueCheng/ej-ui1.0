@@ -1,7 +1,7 @@
 import React from 'react';
 import {Form,Modal,Input} from 'antd'
 
-class CategoryForm extends React.Component {
+class CommentForm extends React.Component {
 
   render(){
     const formLayout = {
@@ -18,37 +18,37 @@ class CategoryForm extends React.Component {
     const { visible, onCancel, onCreate, form } = this.props;
     const { getFieldDecorator } = form;
     // 将表单中没有出现的值做一个双向数据绑定
+    getFieldDecorator("id");
+    getFieldDecorator("content");
+    getFieldDecorator("order_id");
+    
     
     
     return (
       <Modal
           visible={visible}
-          title="添加类别信息"
+          title="审核"
           okText="提交"
           onCancel={onCancel}
           onOk={onCreate}
         >
           <Form layout="vertical" {...formLayout}>
-          <Form.Item label="ID" >
+            <Form.Item label="id" >
               {getFieldDecorator('id', {
-                rules: [{ required: true, message: '请输入类别id!' }],
+                rules: [{ required: true, message: '请输入id!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="名称" >
-              {getFieldDecorator('name', {
-                rules: [{ required: true, message: '请输入类别名!' }],
+            <Form.Item label="内容" >
+              {getFieldDecorator('content', {
+                rules: [{ required: true, message: '请输入类别内容!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="数量">
-              {getFieldDecorator('num', {
-                rules: [{ required: true, message: '请输入数量!' }],
-              })(<Input />)}
+            <Form.Item label="顾客名称">
+              {getFieldDecorator('customer_id', {
+                rules: [{ required: true, message: '请输入顾客名称!' }],
+              })(<Input/>)}
             </Form.Item>
-            <Form.Item label="上一级类ID">
-              {getFieldDecorator('parent_id', {
-                rules: [{ required: true, message: '请输入上一级类id!' }],
-              })(<Input />)}
-            </Form.Item>
+            
 
           </Form>
         </Modal>
@@ -67,4 +67,4 @@ const mapPropsToFields = (props)=>{
 
 export default Form.create({
   mapPropsToFields
-})(CategoryForm);
+})(CommentForm);

@@ -1,14 +1,14 @@
 import React from 'react';
 // 引入css进行页面美化
-import styles from './CategoryPage.css'
+import styles from './AddressPage.css'
 // 导入组件
 import {Modal,Button, Table,message } from 'antd'
 import axios from '../utils/axios'
-import CategoryForm from './CategoryForm.js'
+import AddressForm from './AddressForm.js'
 
 
 // 组件类必须要继承React.Component，是一个模块，顾客管理子功能
-class CategoryPage extends React.Component {
+class AddressPage extends React.Component {
   // 局部状态state
   constructor(){
     super();
@@ -17,7 +17,7 @@ class CategoryPage extends React.Component {
       list:[],
       loading:false,
       visible:false,
-      category:{}
+      address:{}
     }
   }
 
@@ -31,7 +31,7 @@ class CategoryPage extends React.Component {
   // 重载数据
   reloadData(){
     this.setState({loading:true});
-    axios.get("/category/findAll")
+    axios.get("/address/findAll")
     .then((result)=>{
       // 将查询数据更新到state中
       this.setState({list:result.data})
@@ -48,7 +48,7 @@ class CategoryPage extends React.Component {
       title: '确定删除这些记录吗?',
       content: '删除后数据将无法恢复',
       onOk:() => {
-        axios.post("/category/batchDelete",{ids:this.state.ids})
+        axios.post("/address/batchDelete",{ids:this.state.ids})
         .then((result)=>{
           //批量删除后重载数据
           message.success(result.statusText)
@@ -66,7 +66,7 @@ class CategoryPage extends React.Component {
       content: '删除后数据将无法恢复',
       onOk:() => {
         // 删除操作
-        axios.get("/category/deleteById",{
+        axios.get("/address/deleteById",{
           params:{
             id:id
           }
@@ -95,7 +95,7 @@ class CategoryPage extends React.Component {
         return;
       }
       // 表单校验完成后与后台通信进行保存
-      axios.post("/category/saveOrUpdate",values)
+      axios.post("/address/saveOrUpdate",values)
       .then((result)=>{
         message.success(result.statusText)
         // 重置表单
@@ -116,12 +116,12 @@ class CategoryPage extends React.Component {
   // 去添加
   toAdd(){
     // 将默认值置空,模态框打开
-    this.setState({category:{},visible:true})
+    this.setState({address:{},visible:true})
   }
   // 去更新
   toEdit(record){
     // 更前先先把要更新的数据设置到state中
-    this.setState({category:record})
+    this.setState({address:record})
     // 将record值绑定表单中
     this.setState({visible:true})
   }
@@ -134,15 +134,24 @@ class CategoryPage extends React.Component {
       title:'id',
       dataIndex:'id'
     },{
-      title:'名称',
-      dataIndex:'name'
+      title:'省份',
+      dataIndex:'province'
     },{
-      title:'数量',
-      dataIndex:'num'
+      title:'城市',
+      dataIndex:'city'
     },{
-        title:'上一级类ID',
-        dataIndex:'parent_id'
-      },{
+      title:'地区',
+      dataIndex:'area'
+    },{
+      title:'地址',
+      dataIndex:'address'
+    },{
+      title:'电话',
+      dataIndex:'telephone'
+    },{
+      title:'顾客电话',
+      dataIndex:'telephone'
+    },{
       title:'操作',
       width:120,
       align:"center",
@@ -171,10 +180,10 @@ class CategoryPage extends React.Component {
 
     // 返回结果 jsx(js + xml)
     return (
-      <div className={styles.category}>
-        <div className={styles.title}>分类管理</div>
+      <div className={styles.address}>
+        <div className={styles.title}>地址管理</div>
         <div className={styles.btns}>
-          <Button onClick={this.toAdd.bind(this)}>添加分类</Button> &nbsp;
+          <Button onClick={this.toAdd.bind(this)}>添加地址</Button> &nbsp;
           <Button onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
           <Button type="link">导出</Button>
         </div>
@@ -187,8 +196,8 @@ class CategoryPage extends React.Component {
           columns={columns}
           dataSource={this.state.list}/>
 
-        <CategoryForm
-          initData={this.state.category}
+        <AddressForm
+          initData={this.state.address}
           wrappedComponentRef={this.saveFormRef}
           visible={this.state.visible}
           onCancel={this.handleCancel}
@@ -198,4 +207,5 @@ class CategoryPage extends React.Component {
     )
   }
 }
-export default CategoryPage;
+
+export default AddressPage;
