@@ -19,11 +19,7 @@ class AddressForm extends React.Component {
     const { getFieldDecorator } = form;
     // 将表单中没有出现的值做一个双向数据绑定
     getFieldDecorator("id");
-    getFieldDecorator("province");
-    getFieldDecorator("city");
-    getFieldDecorator("area");
-    getFieldDecorator("address");
-    getFieldDecorator("teltephone");
+   
     getFieldDecorator("customer_id");
     
     
@@ -36,11 +32,7 @@ class AddressForm extends React.Component {
           onOk={onCreate}
         >
           <Form layout="vertical" {...formLayout}>
-            <Form.Item label="id" >
-              {getFieldDecorator('id', {
-                rules: [{ required: true, message: '请输入id!' }],
-              })(<Input />)}
-            </Form.Item>
+
             <Form.Item label="省份" >
               {getFieldDecorator('province', {
                 rules: [{ required: true, message: '请输入省份!' }],
@@ -66,11 +58,7 @@ class AddressForm extends React.Component {
                 rules: [{ required: true, message: '请输入电话!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="顾客姓名">
-              {getFieldDecorator('telephone', {
-                rules: [{ required: true, message: '请输入顾客姓名!' }],
-              })(<Input />)}
-            </Form.Item>
+           
             
 
           </Form>
