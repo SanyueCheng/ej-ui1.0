@@ -4,7 +4,7 @@ import styles from './CategoryPage.css'
 // 导入组件
 import {Modal,Button, Table,message } from 'antd'
 import axios from '../utils/axios'
-import CategoryForm from './CategoryForm'
+import CategoryForm from './CategoryForm.js'
 
 
 // 组件类必须要继承React.Component，是一个模块，顾客管理子功能
@@ -131,16 +131,16 @@ class CategoryPage extends React.Component {
   render(){
     // 变量定义
     let columns = [{
+      title:'id',
+      dataIndex:'id'
+    },{
       title:'名称',
       dataIndex:'name'
     },{
       title:'数量',
       dataIndex:'num'
     },{
-      title:'ID',
-      dataIndex:'id'
-    },{
-        title:'从属类ID',
+        title:'上一级类ID',
         dataIndex:'parent_id'
       },{
       title:'操作',
@@ -174,7 +174,7 @@ class CategoryPage extends React.Component {
       <div className={styles.category}>
         <div className={styles.title}>分类管理</div>
         <div className={styles.btns}>
-          <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
+          <Button onClick={this.toAdd.bind(this)}>添加分类</Button> &nbsp;
           <Button onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
           <Button type="link">导出</Button>
         </div>

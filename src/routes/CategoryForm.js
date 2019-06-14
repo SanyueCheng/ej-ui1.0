@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form,Modal,Input,Upload,Button,Icon} from 'antd'
+import {Form,Modal,Input} from 'antd'
 
 class CategoryForm extends React.Component {
 
@@ -29,25 +29,25 @@ class CategoryForm extends React.Component {
           onOk={onCreate}
         >
           <Form layout="vertical" {...formLayout}>
-            <Form.Item label="类别名称" >
-              {getFieldDecorator('name', {
-                rules: [{ required: true, message: '请输入类别名!' }],
-              })(<Input />)}
-            </Form.Item>
-            <Form.Item label="ID" >
+          <Form.Item label="ID" >
               {getFieldDecorator('id', {
                 rules: [{ required: true, message: '请输入类别id!' }],
+              })(<Input />)}
+            </Form.Item>
+            <Form.Item label="名称" >
+              {getFieldDecorator('name', {
+                rules: [{ required: true, message: '请输入类别名!' }],
               })(<Input />)}
             </Form.Item>
             <Form.Item label="数量">
               {getFieldDecorator('num', {
                 rules: [{ required: true, message: '请输入数量!' }],
-              })(<Input.Password />)}
+              })(<Input />)}
             </Form.Item>
-            <Form.Item label="从属类ID">
+            <Form.Item label="上一级类ID">
               {getFieldDecorator('parent_id', {
-                rules: [{ required: true, message: '请输入从属类id!' }],
-              })(<Input.Password />)}
+                rules: [{ required: true, message: '请输入上一级类id!' }],
+              })(<Input />)}
             </Form.Item>
 
           </Form>

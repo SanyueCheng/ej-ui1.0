@@ -17,7 +17,7 @@ class AddressPage extends React.Component {
       list:[],
       loading:false,
       visible:false,
-      Address:{}
+      address:{}
     }
   }
 
@@ -138,22 +138,21 @@ class AddressPage extends React.Component {
       dataIndex:'province'
     },{
       title:'城市',
-      align:"city",
-      dataIndex:'status'
+      dataIndex:'city'
     },{
       title:'地区',
-      align:"area",
-      dataIndex:'status'
+      dataIndex:'area'
     },{
       title:'地址',
-      align:"address",
-      dataIndex:'status'
+      dataIndex:'address'
     },{
       title:'电话',
-      align:"telephone",
-      dataIndex:'status'
+      dataIndex:'telephone'
     },{
-      title:'顾客姓名',
+      title:'顾客电话',
+      dataIndex:'telephone'
+    },{
+      title:'操作',
       width:120,
       align:"center",
       render:(text,record)=>{
@@ -181,10 +180,10 @@ class AddressPage extends React.Component {
 
     // 返回结果 jsx(js + xml)
     return (
-      <div className={styles.customer}>
+      <div className={styles.address}>
         <div className={styles.title}>地址管理</div>
         <div className={styles.btns}>
-          <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
+          <Button onClick={this.toAdd.bind(this)}>添加地址</Button> &nbsp;
           <Button onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
           <Button type="link">导出</Button>
         </div>

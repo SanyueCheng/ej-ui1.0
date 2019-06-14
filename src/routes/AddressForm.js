@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form,Modal,Input,Upload,Button,Icon} from 'antd'
+import {Form,Modal,Input} from 'antd'
 
 class AddressForm extends React.Component {
 
@@ -71,18 +71,7 @@ class AddressForm extends React.Component {
                 rules: [{ required: true, message: '请输入顾客姓名!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="头像上传">
-               {getFieldDecorator('upload', {
-                  valuePropName: 'fileList',
-                  getValueFromEvent: this.normFile,
-                })(
-            <Upload name="logo" action="/upload.do" listType="picture">
-              <Button>
-                <Icon type="upload" /> Click to upload
-              </Button>
-            </Upload>,
-          )}
-        </Form.Item>
+            
 
           </Form>
         </Modal>

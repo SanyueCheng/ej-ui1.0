@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form,Modal,Input,Upload,Button,Icon} from 'antd'
+import {Form,Modal,Input} from 'antd'
 
 class CommentForm extends React.Component {
 
