@@ -1,7 +1,7 @@
 import React from 'react';
-import {Form,Modal,Input} from 'antd'
+import {Form,Modal,Input,Upload,Button,Icon} from 'antd'
 
-class CategoryForm extends React.Component {
+class LoginForm extends React.Component {
 
   render(){
     const formLayout = {
@@ -18,38 +18,30 @@ class CategoryForm extends React.Component {
     const { visible, onCancel, onCreate, form } = this.props;
     const { getFieldDecorator } = form;
     // 将表单中没有出现的值做一个双向数据绑定
-    
-    
+   
+    getFieldDecorator("status");
+    getFieldDecorator("photo");
     return (
       <Modal
           visible={visible}
-          title="添加类别信息"
+          title="登录"
           okText="提交"
           onCancel={onCancel}
           onOk={onCreate}
         >
           <Form layout="vertical" {...formLayout}>
-            <Form.Item label="类别名称" >
-              {getFieldDecorator('name', {
-                rules: [{ required: true, message: '请输入类别名!' }],
-              })(<Input />)}
-            </Form.Item>
             <Form.Item label="ID" >
               {getFieldDecorator('id', {
-                rules: [{ required: true, message: '请输入类别id!' }],
+                rules: [{ required: true, message: '请输入id!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="数量">
-              {getFieldDecorator('num', {
-                rules: [{ required: true, message: '请输入数量!' }],
+           
+            <Form.Item label="密码">
+              {getFieldDecorator('password', {
+                rules: [{ required: true, message: '请输入密码!' }],
               })(<Input.Password />)}
             </Form.Item>
-            <Form.Item label="从属类ID">
-              {getFieldDecorator('parent_id', {
-                rules: [{ required: true, message: '请输入从属类id!' }],
-              })(<Input.Password />)}
-            </Form.Item>
-
+            
           </Form>
         </Modal>
     );
@@ -67,4 +59,4 @@ const mapPropsToFields = (props)=>{
 
 export default Form.create({
   mapPropsToFields
-})(CategoryForm);
+})(LoginForm);
