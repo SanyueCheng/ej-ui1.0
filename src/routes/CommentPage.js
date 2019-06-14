@@ -145,6 +145,10 @@ class CommentPage extends React.Component {
       title:'订单名称',
       align:"order_id",
       dataIndex:'status',
+    },{
+      title:'操作',
+      width:120,
+      align:"center",
       render:(text,record)=>{
         return (
           <div>
