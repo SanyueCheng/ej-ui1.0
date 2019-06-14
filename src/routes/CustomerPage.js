@@ -5,6 +5,7 @@ import styles from './CustomerPage.css'
 import {Modal,Button, Table,message } from 'antd'
 import axios from '../utils/axios'
 import CustomerForm from './CustomerForm'
+import LoginForm from './LoginForm'
 
 
 // 组件类必须要继承React.Component，是一个模块，顾客管理子功能
@@ -41,7 +42,8 @@ class CustomerPage extends React.Component {
     })
   }
 
-   
+  
+
   // 批量删除
   handleBatchDelete(){
     Modal.confirm({
@@ -125,6 +127,11 @@ class CustomerPage extends React.Component {
     // 将record值绑定表单中
     this.setState({visible:true})
   }
+  //登录
+  toLogin(){
+    
+    this.setState({visible:true})
+  }
 
 
   // 组件类务必要重写的方法，表示页面渲染
@@ -175,6 +182,7 @@ class CustomerPage extends React.Component {
           <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
           <Button onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
           <Button type="link">导出</Button>
+          <Button onClick={this.toLogin.bind(this)}>登录</Button> &nbsp;
         </div>
         <Table 
           bordered
@@ -191,7 +199,11 @@ class CustomerPage extends React.Component {
           visible={this.state.visible}
           onCancel={this.handleCancel}
           onCreate={this.handleCreate}/>
+
+        
+        
       </div>
+
       
     )
   }
