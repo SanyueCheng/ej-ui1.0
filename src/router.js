@@ -12,13 +12,13 @@ import WaiterPage from './routes/WaiterPage'
 
 
 import CommentPage from './routes/CommentPage'
-
-
 import styles from './router.css'
+
+
 function RouterConfig({ history }) {
   return (
-      <Router history={history}>
-         <div className="container">
+    <Router history={history}>
+        <div className="container">
          <div className="styles.leftNav">
            <ul>
              <li><Link to='./customer'>顾客管理</Link></li>
@@ -50,6 +50,7 @@ function RouterConfig({ history }) {
       </div>
       </Router>
   );
+
 }
 
 export default RouterConfig;
