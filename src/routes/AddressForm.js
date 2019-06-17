@@ -48,7 +48,7 @@ class AddressForm extends React.Component {
               })(<Input />)}
             </Form.Item>          
             <Form.Item label="地址">
-              {getFieldDecorator('addess', {
+              {getFieldDecorator('address', {
                 rules: [{ required: true, message: '请输入地址!' }],
               })(<Input />)}
             </Form.Item>
