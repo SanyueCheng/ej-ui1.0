@@ -32,7 +32,6 @@ class AddressForm extends React.Component {
           onOk={onCreate}
         >
           <Form layout="vertical" {...formLayout}>
-
             <Form.Item label="省份" >
               {getFieldDecorator('province', {
                 rules: [{ required: true, message: '请输入省份!' }],
@@ -49,7 +48,7 @@ class AddressForm extends React.Component {
               })(<Input />)}
             </Form.Item>          
             <Form.Item label="地址">
-              {getFieldDecorator('addess', {
+              {getFieldDecorator('address', {
                 rules: [{ required: true, message: '请输入地址!' }],
               })(<Input />)}
             </Form.Item>
