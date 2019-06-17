@@ -11,7 +11,7 @@ class ProductForm extends React.Component {
   }
   //加载栏目信息
   loadCategories(){
-    axios.get("/category/findAll")
+    axios.get("/Category/findAll")
     .then((result)=>{
       this.setState({categories:result.data})
     })
@@ -94,7 +94,7 @@ class ProductForm extends React.Component {
             </Form.Item>
             <Form.Item label="所属分类">
               {getFieldDecorator('categoryId', {
-                rules: [{ required: true, message: '请输入密码!' }],
+                rules: [{ required: true, message: '请选择类别!' }],
               })(
               <Select>
                 {
