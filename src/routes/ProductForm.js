@@ -1,5 +1,15 @@
 import React from 'react';
-import {Form,Modal,Input,Upload,Button,Icon,Select,message} from 'antd'
+import {
+  message,
+  Upload,
+  Button,
+  Icon,
+  Form,
+  Modal,
+  Input,
+  Select
+} from 'antd'
+
 import axios from '../utils/axios'
 
 class ProductForm extends React.Component {
@@ -22,6 +32,8 @@ class ProductForm extends React.Component {
   }
 
   render(){
+   
+
     const formLayout = {
       labelCol: {
         xs: { span: 24 },
@@ -35,8 +47,7 @@ class ProductForm extends React.Component {
     // 父组件传递给子组件值
     const { visible, onCancel, onCreate, form } = this.props;
     const { getFieldDecorator } = form;
-
-   // 定义上传组件的参数
+    // 定义上传组件的参数
     const upload_props =  {
       name: 'file',
       action: 'http://134.175.154.93:8099/manager/file/upload',
@@ -77,19 +88,19 @@ class ProductForm extends React.Component {
           onOk={onCreate}
         >
           <Form layout="vertical" {...formLayout}>
-            <Form.Item label="名称" >
+            <Form.Item label="产品名称" >
               {getFieldDecorator('name', {
                 rules: [{ required: true, message: '请输入产品名称!' }],
-              })(<Input/>)}
+              })(<Input />)}
             </Form.Item>
-            <Form.Item label="描述" >
+            <Form.Item label="描述信息" >
               {getFieldDecorator('description', {
-                rules: [{ required: true, message: '请输入产品描述!' }],
-              })(<Input.TextArea  />)}
+                rules: [{ required: true, message: '请输入描述信息!' }],
+              })(<Input.TextArea />)}
             </Form.Item>
-            <Form.Item label="单价" >
+            <Form.Item label="单价">
               {getFieldDecorator('price', {
-                rules: [{ required: true, message: '请输入单价!' }],
+                rules: [{ required: true, message: '请输入密码!' }],
               })(<Input />)}
             </Form.Item>
             <Form.Item label="所属分类">
