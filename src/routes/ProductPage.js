@@ -84,6 +84,7 @@ class ProductPage extends React.Component {
       if (err) {
         return;
       }
+      alert(JSON.stringify(values));
       // 表单校验完成后与后台通信进行保存
       axios.post("/product/saveOrUpdate",values)
       .then((result)=>{
@@ -124,8 +125,17 @@ class ProductPage extends React.Component {
       title:'描述',
       dataIndex:'description'
     },{
-        title:'价格',
+        title:'单价',
         dataIndex:'price'
+      },{
+        title:'图片',
+      align:"center",
+      dataIndex:'photo',
+      render(text){
+        return (
+          <img width={40} height={40} src={"http://134.175.154.93:8888/group1/"+text}/>
+        )
+      }
       },{
         title:'类别',
         dataIndex:'category_id'
