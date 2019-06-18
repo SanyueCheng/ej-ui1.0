@@ -96,6 +96,7 @@ class CustomerPage extends React.Component {
       if (err) {
         return;
       }
+      alert(JSON.stringify(values));
       // 表单校验完成后与后台通信进行保存
       axios.post("/customer/saveOrUpdate",values)
       .then((result)=>{
@@ -127,6 +128,14 @@ class CustomerPage extends React.Component {
     // 将record值绑定表单中
     this.setState({visible:true})
   }
+  toDetails(record){
+    console.log(record);
+    //跳转 react-router
+    this.props.history.push({
+      pathname:"/customerDetails",
+      payload:record
+    })
+  }
   
 
 
@@ -151,7 +160,9 @@ class CustomerPage extends React.Component {
         return (
           <div>
             <Button type='link' size="small" onClick={this.handleDelete.bind(this,record.id)}>删除</Button>
+            
             <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>修改</Button>
+            <Button type='link' size="small" onClick={this.toDetails.bind(this,record)}>详情</Button>
           </div>
         )
       }
