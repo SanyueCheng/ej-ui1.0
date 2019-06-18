@@ -4,7 +4,7 @@ import styles from './WaiterPage.css'
 // 导入组件
 import {Modal,Button, Table,message } from 'antd'
 import axios from '../utils/axios'
-import WaiterForm from './WaiterForm'
+import WaiterForm from './WaiterForm.js'
 
 
 // 组件类必须要继承React.Component，是一个模块，顾客管理子功能
@@ -17,7 +17,7 @@ class WaiterPage extends React.Component {
       list:[],
       loading:false,
       visible:false,
-      product:{}
+      waiter:{}
     }
   }
   // 在生命周期钩子函数中调用重载数据
@@ -77,6 +77,7 @@ class WaiterPage extends React.Component {
   handleCancel = () => {
     this.setState({ visible: false });
   };
+  
   // 确认按钮的事件处理函数
   handleCreate = () => {
     const form = this.formRef.props.form;

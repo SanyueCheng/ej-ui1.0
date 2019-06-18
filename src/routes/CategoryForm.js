@@ -18,7 +18,10 @@ class CategoryForm extends React.Component {
     const { visible, onCancel, onCreate, form } = this.props;
     const { getFieldDecorator } = form;
     // 将表单中没有出现的值做一个双向数据绑定
-    
+    getFieldDecorator("id");
+    getFieldDecorator("name");
+    getFieldDecorator("num");
+    getFieldDecorator("parent_id");
     
     return (
       <Modal

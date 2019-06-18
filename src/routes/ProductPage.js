@@ -2,12 +2,12 @@ import React from 'react';
 // 引入css进行页面美化
 import styles from './ProductPage.css'
 // 导入组件
-import {Modal,Button, Table,message } from 'antd'
+import {Modal,Button, Table,message} from 'antd'
 import axios from '../utils/axios'
 import ProductForm from './ProductForm'
 
 
-// 组件类必须要继承React.Component，是一个模块，顾客管理子功能
+// 组件类必须要继承React.Component，是一个模块，产品管理子功能
 class ProductPage extends React.Component {
   // 局部状态state
   constructor(){
@@ -84,6 +84,7 @@ class ProductPage extends React.Component {
       if (err) {
         return;
       }
+      alert(JSON.stringify(values));
       // 表单校验完成后与后台通信进行保存
       axios.post("/product/saveOrUpdate",values)
       .then((result)=>{
@@ -113,35 +114,44 @@ class ProductPage extends React.Component {
     // 将record值绑定表单中
     this.setState({visible:true})
   }
+  toDetails(record){
+    console.log(record);
+    //跳转
+    this.props.history.push("/productDetails")
+  }
 
   // 组件类务必要重写的方法，表示页面渲染
   render(){
     // 变量定义
     let columns = [{
-      title:'名称',
+      title:'产品名称',
       dataIndex:'name'
     },{
       title:'描述',
       dataIndex:'description'
     },{
-        title:'价格',
-        dataIndex:'price'
-      },{
-        title:'类别',
-        dataIndex:'category_id'
-      },{
-      title:'状态',
+      title:'单价',
       align:"center",
-      dataIndex:'status'
+      dataIndex:'price'
+    },{
+      title:'图片',
+      align:"center",
+      dataIndex:'photo',
+      render(text){
+        return (
+          <img width={40} height={40} src={"http://134.175.154.93:8888/group1/"+text}/>
+        )
+      }
     },{
       title:'操作',
-      width:120,
+      width:160,
       align:"center",
       render:(text,record)=>{
         return (
           <div>
             <Button type='link' size="small" onClick={this.handleDelete.bind(this,record.id)}>删除</Button>
             <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>修改</Button>
+            <Button type='link' size="small" onClick={this.toDetails.bind(this,record)}>详情</Button>
           </div>
         )
       }
@@ -184,7 +194,6 @@ class ProductPage extends React.Component {
           onCancel={this.handleCancel}
           onCreate={this.handleCreate}/>
       </div>
-      
     )
   }
 }

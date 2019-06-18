@@ -149,8 +149,8 @@ class AddressPage extends React.Component {
       title:'电话',
       dataIndex:'telephone'
     },{
-      title:'顾客电话',
-      dataIndex:'telephone'
+      title:'顾客id',
+      dataIndex:'customer_id'
     },{
       title:'操作',
       width:120,

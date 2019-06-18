@@ -191,7 +191,7 @@ class CommentPage extends React.Component {
           dataSource={this.state.list}/>
 
         <CommentForm
-          initData={this.state.address}
+          initData={this.state.comment}
           wrappedComponentRef={this.saveFormRef}
           visible={this.state.visible}
           onCancel={this.handleCancel}
