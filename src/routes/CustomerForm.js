@@ -1,7 +1,14 @@
 import React from 'react';
 import {Form,Modal,Input,Upload,Button,Icon} from 'antd'
+import axios from '../utils/axios'
 
 class CustomerForm extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      categories:[]
+    }
+  }
 
   render(){
     const formLayout = {
@@ -46,13 +53,7 @@ class CustomerForm extends React.Component {
               })(<Input.Password />)}
             </Form.Item>
             
-            <Form.Item label="头像上传">
-              <Upload {...upload_props}>
-                <Button>
-                  <Icon type="upload" /> Click to Upload
-                </Button>
-              </Upload>
-            </Form.Item>
+            
           </Form>
         </Modal>
     );
