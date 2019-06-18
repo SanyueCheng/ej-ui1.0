@@ -112,6 +112,7 @@ function RouterConfig({ history }) {
 
       </Router>
   );
+
 }
 
 export default RouterConfig;
