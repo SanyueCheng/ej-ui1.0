@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form,Modal,Input,Upload,Button,Icon,message} from 'antd'
+import {Form,Modal,Input,Upload,Button,Icon} from 'antd'
 
 class CustomerForm extends React.Component {
 
@@ -17,36 +17,10 @@ class CustomerForm extends React.Component {
     // 父组件传递给子组件值
     const { visible, onCancel, onCreate, form } = this.props;
     const { getFieldDecorator } = form;
-    // 定义上传组件的参数
-    const upload_props =  {
-      name: 'file',
-      action: 'http://134.175.154.93:8099/manager/file/upload',
-      onChange:(info)=> {
-        if (info.file.status !== 'uploading') {
-          console.log(info.file, info.fileList);
-        }
-        if (info.file.status === 'done') {
-          //后端的回应信息
-          let result = info.file.response;
-          // 将上传成功后的图片id保存到表单中，点击提交的时候再随着表单提交提交到后台
-          if(result.status=== 200){
-            let photo = result.data.id;
-            // 自行将photo设置到表单中
-            this.props.form.setFieldsValue({
-              photo
-            });
-          } else {
-            message.error(result.message)
-          }
-        } else if (info.file.status === 'error') {
-          message.error(`${info.file.name} file upload failed.`);
-        }
-      },
-    };
     // 将表单中没有出现的值做一个双向数据绑定
     getFieldDecorator("id");
     getFieldDecorator("status");
-    
+    getFieldDecorator("photo");
     return (
       <Modal
           visible={visible}
@@ -61,7 +35,6 @@ class CustomerForm extends React.Component {
                 rules: [{ required: true, message: '请输入姓名!' }],
               })(<Input />)}
             </Form.Item>
-           
             <Form.Item label="手机号" >
               {getFieldDecorator('telephone', {
                 rules: [{ required: true, message: '请输入手机号!' }],
