@@ -17,13 +17,7 @@ class OrderForm extends React.Component {
     // 父组件传递给子组件值
     const { visible, onCancel, onCreate, form } = this.props;
     const { getFieldDecorator } = form;
-    // 将表单中没有出现的值做一个双向数据绑定
-    getFieldDecorator("id");
-    getFieldDecorator("order_time");
-    getFieldDecorator("total");
-    getFieldDecorator("customer_id");
-    getFieldDecorator("waiter_id");
-    getFieldDecorator("address_id");
+   
     
     return (
       <Modal
@@ -34,24 +28,34 @@ class OrderForm extends React.Component {
       onOk={onCreate}
         >
           <Form layout="vertical" {...formLayout}>
-            <Form.Item label="id" >
+            <Form.Item label="订单id" >
               {getFieldDecorator('id', {
                 rules: [{ required: true, message: '请输入id!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="数量" >
-              {getFieldDecorator('number', {
-                rules: [{ required: true, message: '请输入数量!' }],
+            <Form.Item label="下单时间" >
+              {getFieldDecorator('orderTime', {
+                rules: [{ required: true, message: '请输入时间!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="物品名称">
-              {getFieldDecorator('product_id', {
-                rules: [{ required: true, message: '请输入物品名称!' }],
+            <Form.Item label="金额总计">
+              {getFieldDecorator('total', {
+                rules: [{ required: true, message: '请输入金额总计!' }],
               })(<Input/>)}
             </Form.Item>
-            <Form.Item label="订单名称">
-              {getFieldDecorator('order_id', {
-                rules: [{ required: true, message: '请输入订单名称!' }],
+            <Form.Item label="顾客ID">
+              {getFieldDecorator('customerId', {
+                rules: [{ required: true, message: '请输入顾客ID!' }],
+              })(<Input />)}
+            </Form.Item>
+            <Form.Item label="员工ID">
+              {getFieldDecorator('waiterId', {
+                rules: [{ required: true, message: '请输入员工ID!' }],
+              })(<Input />)}
+            </Form.Item>
+            <Form.Item label="地址ID">
+              {getFieldDecorator('"addressId', {
+                rules: [{ required: true, message: '请输入地址ID!' }],
               })(<Input />)}
             </Form.Item>
             

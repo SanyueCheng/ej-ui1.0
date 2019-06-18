@@ -19,33 +19,34 @@ class CommentForm extends React.Component {
     const { getFieldDecorator } = form;
     // 将表单中没有出现的值做一个双向数据绑定
     getFieldDecorator("id");
-    getFieldDecorator("content");
-    getFieldDecorator("order_id");
+    
     
     
     
     return (
       <Modal
           visible={visible}
-          title="审核"
+          title="添加"
           okText="提交"
           onCancel={onCancel}
           onOk={onCreate}
         >
           <Form layout="vertical" {...formLayout}>
-            <Form.Item label="id" >
-              {getFieldDecorator('id', {
-                rules: [{ required: true, message: '请输入id!' }],
-              })(<Input />)}
-            </Form.Item>
-            <Form.Item label="内容" >
+            
+           
+            <Form.Item label="评论内容" >
               {getFieldDecorator('content', {
                 rules: [{ required: true, message: '请输入类别内容!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="顾客名称">
-              {getFieldDecorator('customer_id', {
-                rules: [{ required: true, message: '请输入顾客名称!' }],
+            <Form.Item label="评论时间">
+              {getFieldDecorator('commentTime', {
+                rules: [{ required: true, message: '请输入评论时间!' }],
+              })(<Input/>)}
+            </Form.Item>
+            <Form.Item label="订单ID">
+              {getFieldDecorator('orderId', {
+                rules: [{ required: true, message: '请输入订单ID!' }],
               })(<Input/>)}
             </Form.Item>
             

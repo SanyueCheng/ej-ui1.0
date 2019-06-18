@@ -74,18 +74,12 @@ class CustomerForm extends React.Component {
             </Form.Item>
             
             <Form.Item label="头像上传">
-               {getFieldDecorator('upload', {
-                  valuePropName: 'fileList',
-                  getValueFromEvent: this.normFile,
-                })(
-            <Upload name="logo" action="/upload.do" listType="picture">
-              <Button>
-                <Icon type="upload" /> Click to upload
-              </Button>
-            </Upload>,
-          )}
-        </Form.Item>
-
+              <Upload {...upload_props}>
+                <Button>
+                  <Icon type="upload" /> Click to Upload
+                </Button>
+              </Upload>
+            </Form.Item>
           </Form>
         </Modal>
     );

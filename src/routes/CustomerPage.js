@@ -153,6 +153,15 @@ class CustomerPage extends React.Component {
       align:"center",
       dataIndex:'status'
     },{
+      title:'头像',
+      align:"center",
+      dataIndex:'photo',
+      render(text){
+        return (
+          <img width={40} height={40} src={"http://134.175.154.93:8888/group1/"+text}/>
+        )
+      }
+    },{
       title:'操作',
       width:120,
       align:"center",
