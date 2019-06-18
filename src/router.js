@@ -10,6 +10,7 @@ import CategoryPage from './routes/CategoryPage'
 import AddressPage from './routes/AddressPage'
 import WaiterPage from './routes/WaiterPage'
 import CommentPage from './routes/CommentPage'
+import CustomerDetails from './routes/CustomerDetails'
 import {Layout, Menu, Breadcrumb, Icon,Button} from 'antd'
 
 //import styles from './router.css'
@@ -98,6 +99,7 @@ function RouterConfig({ history }) {
                 <Route path="/" exact component={IndexPage} />
                 {/* <Route path="/orderLine" exact component={OrderLinePage} /> */}
                 <Route path="/customer" exact component={CustomerPage} />
+                <Route path="/customerDetails" exact component={CustomerDetails} />
                 <Route path="/order" exact component={OrderPage} />
                 <Route path="/product" exact component={ProductPage} />
                 <Route path="/address" exact component={AddressPage} />
