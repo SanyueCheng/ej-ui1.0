@@ -51,19 +51,7 @@ class WaiterForm extends React.Component {
               })(<Input />)}
             </Form.Item>
             
-            <Form.Item label="图像上传">
-               {getFieldDecorator('upload', {
-                  valuePropName: 'fileList',
-                  getValueFromEvent: this.normFile,
-                })(
-            <Upload name="logo" action="/upload.do" listType="picture">
-              <Button>
-                <Icon type="upload" /> Click to upload
-              </Button>
-            </Upload>,
-          )}
-        </Form.Item>
-
+            
           </Form>
         </Modal>
     );
