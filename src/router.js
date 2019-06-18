@@ -10,7 +10,9 @@ import CategoryPage from './routes/CategoryPage'
 import AddressPage from './routes/AddressPage'
 import WaiterPage from './routes/WaiterPage'
 import CommentPage from './routes/CommentPage'
+import customerDetails from './routes/CustomerDetails'
 import {Layout, Menu, Breadcrumb, Icon,Button} from 'antd'
+import CustomerDetails from './routes/CustomerDetails';
 
 //import styles from './router.css'
 
@@ -104,6 +106,7 @@ function RouterConfig({ history }) {
                 <Route path="/waiter" exact component={WaiterPage} />
                 <Route path="/comment" exact component={CommentPage} />
                 <Route path="/category" exact component={CategoryPage} />
+                <Route path="/customerDetails" exact component={CustomerDetails} />
               </Switch>
         </Content>
         </Layout>

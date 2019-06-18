@@ -2,10 +2,9 @@ import React from 'react';
 // 引入css进行页面美化
 import styles from './CustomerPage.css'
 // 导入组件
-import {Modal,Button, Table,message } from 'antd'
+import {Modal,Button, Table,message} from 'antd'
 import axios from '../utils/axios'
 import CustomerForm from './CustomerForm'
-
 
 
 // 组件类必须要继承React.Component，是一个模块，顾客管理子功能
@@ -21,13 +20,10 @@ class CustomerPage extends React.Component {
       customer:{}
     }
   }
-
-
   // 在生命周期钩子函数中调用重载数据
   componentDidMount(){
     this.reloadData();
   }
-
 
   // 重载数据
   reloadData(){
@@ -41,9 +37,6 @@ class CustomerPage extends React.Component {
       this.setState({loading:false});
     })
   }
-
-  
-
   // 批量删除
   handleBatchDelete(){
     Modal.confirm({
@@ -59,7 +52,6 @@ class CustomerPage extends React.Component {
       }
     });
   }
-
 
   // 单个删除
   handleDelete(id){
@@ -81,14 +73,10 @@ class CustomerPage extends React.Component {
       }
     });
   }
-
-
   // 取消按钮的事件处理函数
   handleCancel = () => {
     this.setState({ visible: false });
   };
-
-
   // 确认按钮的事件处理函数
   handleCreate = () => {
     const form = this.formRef.props.form;
@@ -109,8 +97,6 @@ class CustomerPage extends React.Component {
       
     });
   };
-
-
   // 将子组件的引用在父组件中进行保存，方便后期调用
   saveFormRef = formRef => {
     this.formRef = formRef;
@@ -127,8 +113,14 @@ class CustomerPage extends React.Component {
     // 将record值绑定表单中
     this.setState({visible:true})
   }
-  
-
+  toDetails(record){
+    console.log(record);
+    //跳转 react-router
+    this.props.history.push({
+      pathname:"/customerDetails",
+      payload:record
+    })
+  }
 
   // 组件类务必要重写的方法，表示页面渲染
   render(){
@@ -145,13 +137,14 @@ class CustomerPage extends React.Component {
       dataIndex:'status'
     },{
       title:'操作',
-      width:120,
+      width:170,
       align:"center",
       render:(text,record)=>{
         return (
           <div>
             <Button type='link' size="small" onClick={this.handleDelete.bind(this,record.id)}>删除</Button>
             <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>修改</Button>
+            <Button type='link' size="small" onClick={this.toDetails.bind(this,record)}>详情</Button>
           </div>
         )
       }
@@ -169,7 +162,6 @@ class CustomerPage extends React.Component {
       }),
     };
     
-
     // 返回结果 jsx(js + xml)
     return (
       <div className={styles.customer}>
@@ -178,7 +170,6 @@ class CustomerPage extends React.Component {
           <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
           <Button onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
           <Button type="link">导出</Button>
-          
         </div>
         <Table 
           bordered
@@ -195,12 +186,7 @@ class CustomerPage extends React.Component {
           visible={this.state.visible}
           onCancel={this.handleCancel}
           onCreate={this.handleCreate}/>
-
-        
-        
       </div>
-
-      
     )
   }
 }
