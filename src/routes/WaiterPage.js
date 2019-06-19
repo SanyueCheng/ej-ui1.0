@@ -43,7 +43,7 @@ class WaiterPage extends React.Component {
       title: '确定删除这些记录吗?',
       content: '删除后数据将无法恢复',
       onOk:() => {
-        axios.post("/waiter/batchDelete",{ids:this.state.ids})
+        axios.post("/Waiter/batchDelete",{ids:this.state.ids})
         .then((result)=>{
           //批量删除后重载数据
           message.success(result.statusText)
@@ -60,7 +60,7 @@ class WaiterPage extends React.Component {
       content: '删除后数据将无法恢复',
       onOk:() => {
         // 删除操作
-        axios.get("/waiter/deleteById",{
+        axios.get("/Waiter/deleteById",{
           params:{
             id:id
           }
@@ -86,7 +86,7 @@ class WaiterPage extends React.Component {
         return;
       }
       // 表单校验完成后与后台通信进行保存
-      axios.post("/waiter/saveOrUpdate",values)
+      axios.post("/Waiter/saveOrUpdate",values)
       .then((result)=>{
         message.success(result.statusText)
         // 重置表单

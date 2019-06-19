@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form,Modal,Input,Upload,Button,Icon} from 'antd'
+import {Form,Modal,Input,Icon} from 'antd'
 
 class WaiterForm extends React.Component {
 
@@ -40,7 +40,7 @@ class WaiterForm extends React.Component {
                 rules: [{ required: true, message: '请输入电话!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="卡号" >
+            <Form.Item label="卡号id" >
               {getFieldDecorator('idcard', {
                 rules: [{ required: true, message: '请输入卡号!' }],
               })(<Input />)}
@@ -48,6 +48,11 @@ class WaiterForm extends React.Component {
             <Form.Item label="密码" >
               {getFieldDecorator('password', {
                 rules: [{ required: true, message: '请输入密码!' }],
+              })(<Input />)}
+            </Form.Item>
+            <Form.Item label="状态" >
+              {getFieldDecorator('status', {
+                rules: [{ required: true, message: '请输入状态!' }],
               })(<Input />)}
             </Form.Item>
             

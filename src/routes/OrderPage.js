@@ -131,25 +131,29 @@ class OrderPage extends React.Component {
   render(){
     // 变量定义
     let columns = [{
-      title:'物品名称',
-      dataIndex:'realname'
+      title:'订单编号',
+      dataIndex:'id'
     },{
       title:'订单时间',
-      dataIndex:'ordertime'
+      dataIndex:'orderTime'
     },{
-      title:'购物总计',
+      title:'金额总计',
       align:"center",
       dataIndex:'total'
     },{
-        title:'顾客姓名',
+        title:'顾客ID',
         align:"center",
         dataIndex:'customer_id'
       },{
-        title:'员工姓名',
+        title:'员工ID',
         align:"center",
         dataIndex:'waiter_id'
       },{
-        title:'地址',
+        title:'地址ID',
+        align:"center",
+        dataIndex:'addressId'
+      },{
+        title:'操作',
         width:120,
       align:"center",
       render:(text,record)=>{

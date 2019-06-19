@@ -135,15 +135,15 @@ class CommentPage extends React.Component {
       title:'id',
       dataIndex:'id'
     },{
-      title:'内容',
+      title:'评论内容',
       dataIndex:'content'
     },{
       title:'评论时间',
-      align:"comment_time",
+      align:"commentTime",
       dataIndex:'status'
     },{
-      title:'订单名称',
-      align:"order_id",
+      title:'订单ID',
+      align:"orderId",
       dataIndex:'status',
     },{
       title:'操作',
@@ -177,7 +177,7 @@ class CommentPage extends React.Component {
       <div className={styles.comment}>
         <div className={styles.title}>评论管理</div>
         <div className={styles.btns}>
-          <Button onClick={this.toAdd.bind(this)}>审核</Button> &nbsp;
+          <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
           <Button onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
           <Button type="link">导出</Button>
         </div>

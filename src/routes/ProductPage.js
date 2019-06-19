@@ -137,6 +137,7 @@ class ProductPage extends React.Component {
       title:'图片',
       align:"center",
       dataIndex:'photo',
+     // console.log(text
       render(text){
         return (
           <img width={40} height={40} src={"http://134.175.154.93:8888/group1/"+text}/>

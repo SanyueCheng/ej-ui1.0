@@ -19,9 +19,7 @@ class CategoryForm extends React.Component {
     const { getFieldDecorator } = form;
     // 将表单中没有出现的值做一个双向数据绑定
     getFieldDecorator("id");
-    getFieldDecorator("name");
-    getFieldDecorator("num");
-    getFieldDecorator("parent_id");
+   
     
     return (
       <Modal
@@ -32,11 +30,7 @@ class CategoryForm extends React.Component {
           onOk={onCreate}
         >
           <Form layout="vertical" {...formLayout}>
-          <Form.Item label="ID" >
-              {getFieldDecorator('id', {
-                rules: [{ required: true, message: '请输入类别id!' }],
-              })(<Input />)}
-            </Form.Item>
+          
             <Form.Item label="名称" >
               {getFieldDecorator('name', {
                 rules: [{ required: true, message: '请输入类别名!' }],
@@ -47,7 +41,15 @@ class CategoryForm extends React.Component {
                 rules: [{ required: true, message: '请输入数量!' }],
               })(<Input />)}
             </Form.Item>
+<<<<<<< HEAD
            
+=======
+            <Form.Item label="父类ID">
+              {getFieldDecorator('parentId', {
+                rules: [{ required: true, message: '请输入上一级类id!' }],
+              })(<Input />)}
+            </Form.Item>
+>>>>>>> 6d2ef343bf24e1a79063d0dd014f01ca8eb1b31c
 
           </Form>
         </Modal>
