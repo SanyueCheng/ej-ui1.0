@@ -1,9 +1,5 @@
 import React from 'react'
-<<<<<<< HEAD
 import {Button,Tabs} from 'antd'
-=======
-import {Button,Tabs, Table} from 'antd'
->>>>>>> 6d2ef343bf24e1a79063d0dd014f01ca8eb1b31c
 import axios from '../utils/axios';
 
 class CustomerDetails extends React.Component {
@@ -68,16 +64,10 @@ class CustomerDetails extends React.Component {
             <img alt="图片找不到..." src={this.state.customer.photo}/>
           </TabPane>
           <TabPane tab="服务地址" key="2">
-<<<<<<< HEAD
-            {JSON.stringify(this.state.address)}
-=======
-          {JSON.stringify(this.state.address)}
-          
- 
->>>>>>> 6d2ef343bf24e1a79063d0dd014f01ca8eb1b31c
+           
           </TabPane>
           <TabPane tab="订单" key="3">
-            {JSON.stringify(this.state.orders)}
+         
           </TabPane>
         </Tabs>
         <Button type="link" onClick={()=>{this.props.history.goBack()}}>返回</Button>

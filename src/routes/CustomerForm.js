@@ -1,10 +1,6 @@
 import React from 'react';
-<<<<<<< HEAD
-import {Form,Modal,Input,Upload,Button,Icon} from 'antd'
-=======
 import {Form,Modal,Input,Upload,Button,Icon,message} from 'antd'
 import axios from '../utils/axios'
->>>>>>> 6d2ef343bf24e1a79063d0dd014f01ca8eb1b31c
 
 class CustomerForm extends React.Component {
   constructor(props){
@@ -28,8 +24,7 @@ class CustomerForm extends React.Component {
     // 父组件传递给子组件值
     const { visible, onCancel, onCreate, form } = this.props;
     const { getFieldDecorator } = form;
-<<<<<<< HEAD
-=======
+
     // 定义上传组件的参数
     const upload_props =  {
       name: 'file',
@@ -57,7 +52,7 @@ class CustomerForm extends React.Component {
       },
     };
 
->>>>>>> 6d2ef343bf24e1a79063d0dd014f01ca8eb1b31c
+
     // 将表单中没有出现的值做一个双向数据绑定
     getFieldDecorator("id");
     getFieldDecorator("status");
