@@ -47,11 +47,7 @@ class CategoryForm extends React.Component {
                 rules: [{ required: true, message: '请输入数量!' }],
               })(<Input />)}
             </Form.Item>
-            <Form.Item label="上一级类ID">
-              {getFieldDecorator('parent_id', {
-                rules: [{ required: true, message: '请输入上一级类id!' }],
-              })(<Input />)}
-            </Form.Item>
+           
 
           </Form>
         </Modal>
