@@ -163,7 +163,7 @@ class WaiterPage extends React.Component {
         <div className={styles.title}>员工管理</div>
         <div className={styles.btns}>
           <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
-          <Button onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
+          <Button type="danger" onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
           <Button type="link">录入</Button>
         </div>
         <Table 

@@ -176,7 +176,7 @@ class ProductPage extends React.Component {
         <div className={styles.title}>产品管理</div>
         <div className={styles.btns}>
           <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
-          <Button onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
+          <Button type="danger" onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> 
           <Button type="link">导出</Button>
         </div>
         <Table 

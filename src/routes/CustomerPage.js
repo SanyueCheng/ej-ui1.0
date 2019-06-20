@@ -2,10 +2,10 @@ import React from 'react';
 // 引入css进行页面美化
 import styles from './CustomerPage.css'
 // 导入组件
-import {Modal,Button, Table,message } from 'antd'
+import {Modal,Button, Table,message ,Input} from 'antd'
 import axios from '../utils/axios'
 import CustomerForm from './CustomerForm'
-
+const Search = Input.Search;
 
 
 // 组件类必须要继承React.Component，是一个模块，顾客管理子功能
@@ -81,6 +81,18 @@ class CustomerPage extends React.Component {
       }
     });
   }
+
+          handleSearch = (value) => {
+            axios.get('customer/query', { params: { telephone: value } })
+              .then((result) => {
+                if (200 === result.status) {
+                  this.setState({
+                    list: result.data
+                  })
+                }
+              })
+          }
+
 
 
   // 取消按钮的事件处理函数
@@ -196,10 +208,18 @@ class CustomerPage extends React.Component {
         <div className={styles.title}>顾客管理</div>
         <div className={styles.btns}>
           <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
-          <Button onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
-          <Button type="link">导出</Button>
+          <Button type="danger" onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
+          {/*<Button type="link">导出</Button>*/}
+          <Search
+                    placeholder="请输入要查询的内容"
+                    onSearch={value => this.handleSearch(value)}
+                    style={{ width: 200 }}
+                  />
           
-        </div>
+          </div>
+        
+         
+
         <Table 
           bordered
           rowKey="id"

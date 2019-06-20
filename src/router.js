@@ -13,10 +13,10 @@ import CommentPage from './routes/CommentPage'
 
 
 import CustomerDetails from './routes/CustomerDetails'
-import {Layout, Menu, Breadcrumb, Icon,Button} from 'antd'
+import {Layout, Menu, Breadcrumb, Icon,Button,TimePicker} from 'antd'
+import moment from 'moment'
 
-
-//import styles from './router.css'
+import styles from './router.css'
 
 function RouterConfig({ history }) {
   const { SubMenu } = Menu;
@@ -26,108 +26,103 @@ function RouterConfig({ history }) {
   return (
     <Router history={history}>
       <Layout>
-        <Header className="header">
-
-
-
-
-
+        <Header style={{background:"#FFB6C1"}}>
           <div className="logo" style={{ color: "#fff", fontWeight: "bold", fontSize: "24px" }} >
-
             e洁家政后台管理系统
-                    </div>
+          </div>
+     
         </Header>
         <Layout>
-          <Sider width={200} style={{ background: '#fff' }}>
+          <Sider width={200} style={{ background: '#87CEFA' ,}}>
             <Menu
               mode="inline"
               defaultSelectedKeys={['1']}
               defaultOpenKeys={['sub1']}
-              style={{ height: '100%', borderRight: 0 }}
+              style={{background: '#B0C4DE' , height: '100%', borderRight: 0 }}
             >
 
-              <Menu.Item key="1">
-                <Link to='./customer'>
-                  <span>
-                    <Icon type="user" />
-                    <span>顾客管理</span>
-                  </span>
-                </Link>
-              </Menu.Item>
-              
-              
+                  <Menu.Item key="1">
+                    <Link to='./customer'>
+                      <span>
+                        <Icon type="user" />
+                        <span>顾客管理</span>
+                      </span>
+                    </Link>
+                  </Menu.Item>
+                  
+                  
 
-              <Menu.Item key="2">
-              <Link to='./product'>
+                  <Menu.Item key="2">
+                  <Link to='./product'>
+                      <span>
+                        <Icon type="desktop" />
+                        <span>产品管理</span>
+                      </span>
+                    </Link>
+                  </Menu.Item>
+                  
+                
+                  <Menu.Item key="3">
+                  <Link to='./order'>
+                      <span>
+                        <Icon type="align-left" />
+                        <span>订单管理</span>
+                      </span>
+                    </Link>
+                  </Menu.Item>
+                
+                  
+                  
+                  <Menu.Item key="4">
+                  <Link to='./waiter'>
                   <span>
-                    <Icon type="desktop" />
-                    <span>产品管理</span>
-                  </span>
-                </Link>
-              </Menu.Item>
-              
-             
-              <Menu.Item key="3">
-              <Link to='./order'>
+                    <Icon type="usergroup-add" />
+                    <span>员工管理</span>
+                    </span>
+                    </Link>
+                  </Menu.Item>
+                  
+                  
+                  <Menu.Item key="5">
+                  <Link to='./category'>
                   <span>
-                    <Icon type="align-left" />
-                    <span>订单管理</span>
-                  </span>
-                </Link>
-              </Menu.Item>
-             
+                    <Icon type="more" />
+                    <span>分类管理</span>
+                    </span>
+                    </Link>
+                  </Menu.Item>
+                  
+                  
+                  <Menu.Item key="6">
+                  <Link to='./address'>
+                  <span>
+                    <Icon type="global" />
+                    <span>
+                      地址管理
+                    </span>
+                    </span>
+                    </Link>
+                  </Menu.Item>
+                  
+                  
+                  <Menu.Item key="7">
+                  <Link to='./comment'>
+                  <span>
+                    <Icon type="solution" />
+                    <span>
+                      评论管理
+                    </span>    
+                    </span>
+                    </Link>         
+                  </Menu.Item>
               
-              
-              <Menu.Item key="4">
-              <Link to='./waiter'>
-              <span>
-                <Icon type="usergroup-add" />
-                <span>员工管理</span>
-                </span>
-                </Link>
-              </Menu.Item>
-              
-              
-              <Menu.Item key="5">
-              <Link to='./category'>
-              <span>
-                <Icon type="more" />
-                <span>分类管理</span>
-                </span>
-                </Link>
-              </Menu.Item>
-              
-              
-              <Menu.Item key="6">
-              <Link to='./address'>
-              <span>
-                <Icon type="global" />
-                <span>
-                  地址管理
-                </span>
-                </span>
-                </Link>
-              </Menu.Item>
-              
-              
-              <Menu.Item key="7">
-              <Link to='./comment'>
-              <span>
-                <Icon type="solution" />
-                <span>
-                  评论管理
-                </span>    
-                </span>
-                </Link>         
-              </Menu.Item>
-           
             </Menu>
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
 
             <Content
               style={{
-                background: '#fff',
+                background: '#F0FFFF',
                 //padding: 24,
                 margin: 0,
                 minHeight: 280,
