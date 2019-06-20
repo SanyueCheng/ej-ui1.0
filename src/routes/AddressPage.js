@@ -2,10 +2,10 @@ import React from 'react';
 // 引入css进行页面美化
 import styles from './AddressPage.css'
 // 导入组件
-import {Modal,Button, Table,message } from 'antd'
+import {Modal,Button, Table,message,Input } from 'antd'
 import axios from '../utils/axios'
 import AddressForm from './AddressForm.js'
-
+const Search = Input.Search;
 
 // 组件类必须要继承React.Component，是一个模块，顾客管理子功能
 class AddressPage extends React.Component {
@@ -108,6 +108,18 @@ class AddressPage extends React.Component {
     });
   };
 
+   //模糊查询
+   handleSearch = (value) => {
+    axios.get('address/query', { params: { province : value } })
+      .then((result) => {
+        if (200 === result.status) {
+          this.setState({
+            list: result.data
+          })
+        }
+      })
+  }
+
 
   // 将子组件的引用在父组件中进行保存，方便后期调用
   saveFormRef = formRef => {
@@ -186,6 +198,11 @@ class AddressPage extends React.Component {
           <Button onClick={this.toAdd.bind(this)}>添加地址</Button> &nbsp;
           <Button type="danger" onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
           <Button type="link">导出</Button>
+          <Search
+                    placeholder="请输入要查询的内容"
+                    onSearch={value => this.handleSearch(value)}
+                    style={{ width: 200 }}
+                  />
         </div>
         <Table 
           bordered

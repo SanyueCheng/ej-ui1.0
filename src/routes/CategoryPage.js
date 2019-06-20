@@ -2,9 +2,10 @@ import React from 'react';
 // 引入css进行页面美化
 import styles from './CategoryPage.css'
 // 导入组件
-import {Modal,Button, Table,message } from 'antd'
+import {Modal,Button, Table,message,Input } from 'antd'
 import axios from '../utils/axios'
 import CategoryForm from './CategoryForm.js'
+const Search = Input.Search;
 
 
 // 组件类必须要继承React.Component，是一个模块，顾客管理子功能
@@ -108,6 +109,17 @@ class CategoryPage extends React.Component {
     });
   };
 
+  //模糊查询
+  handleSearch = (value) => {
+    axios.get('Catagory/selectByName', { params: { name : value } })
+      .then((result) => {
+        if (200 === result.status) {
+          this.setState({
+            list: result.data
+          })
+        }
+      })
+  }
 
   // 将子组件的引用在父组件中进行保存，方便后期调用
   saveFormRef = formRef => {
@@ -173,7 +185,11 @@ class CategoryPage extends React.Component {
         <div className={styles.btns}>
           <Button onClick={this.toAdd.bind(this)}>添加分类</Button> &nbsp;
           <Button type="danger" onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> 
-          <Button type="link">导出</Button>
+          <Search
+                    placeholder="请输入要查询的内容"
+                    onSearch={value => this.handleSearch(value)}
+                    style={{ width: 200 }}
+                  />
         </div>
         <Table 
           bordered

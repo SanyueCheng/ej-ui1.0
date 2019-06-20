@@ -74,8 +74,9 @@ class CustomerPage extends React.Component {
     });
   }
 
+       //模糊查询
           handleSearch = (value) => {
-            axios.get('customer/query', { params: { telephone: value } })
+            axios.get('customer/query', { params: { realname : value } })
               .then((result) => {
                 if (200 === result.status) {
                   this.setState({

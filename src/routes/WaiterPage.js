@@ -2,10 +2,10 @@ import React from 'react';
 // 引入css进行页面美化
 import styles from './WaiterPage.css'
 // 导入组件
-import {Modal,Button, Table,message } from 'antd'
+import {Modal,Button, Table,message,Input} from 'antd'
 import axios from '../utils/axios'
 import WaiterForm from './WaiterForm.js'
-
+const Search = Input.Search;
 
 // 组件类必须要继承React.Component，是一个模块，顾客管理子功能
 class WaiterPage extends React.Component {
@@ -51,6 +51,17 @@ class WaiterPage extends React.Component {
         })
       }
     });
+  }
+
+  handleSearch = (value) => {
+    axios.get('Waiter/query', { params: { realname : value } })
+      .then((result) => {
+        if (200 === result.status) {
+          this.setState({
+            list: result.data
+          })
+        }
+      })
   }
 
   // 单个删除
@@ -164,7 +175,12 @@ class WaiterPage extends React.Component {
         <div className={styles.btns}>
           <Button onClick={this.toAdd.bind(this)}>添加</Button> &nbsp;
           <Button type="danger" onClick={this.handleBatchDelete.bind(this)}>批量删除</Button> &nbsp;
-          <Button type="link">录入</Button>
+          {/*<Button type="link">录入</Button>*/}
+          <Search
+                    placeholder="请输入要查询的内容"
+                    onSearch={value => this.handleSearch(value)}
+                    style={{ width: 200 }}
+                  />
         </div>
         <Table 
           bordered
