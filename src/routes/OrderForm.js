@@ -28,11 +28,6 @@ class OrderForm extends React.Component {
       onOk={onCreate}
         >
           <Form layout="vertical" {...formLayout}>
-            <Form.Item label="订单id" >
-              {getFieldDecorator('id', {
-                rules: [{ required: true, message: '请输入id!' }],
-              })(<Input />)}
-            </Form.Item>
             <Form.Item label="下单时间" >
               {getFieldDecorator('orderTime', {
                 rules: [{ required: true, message: '请输入时间!' }],

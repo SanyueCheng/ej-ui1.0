@@ -2,10 +2,10 @@ import React from 'react';
 // 引入css进行页面美化
 import styles from './OrderPage.css'
 // 导入组件
-import {Modal,Button, Table,message} from 'antd'
+import {Modal,Button, Table,message,Input} from 'antd'
 import axios from '../utils/axios'
 import OrderForm from './OrderForm'
-
+const Search = Input.Search;
 
 // 组件类必须要继承React.Component，是一个模块，购物订单子功能
 class OrderPage extends React.Component {
@@ -40,6 +40,8 @@ class OrderPage extends React.Component {
       this.setState({loading:false});
     })
   }
+
+  //
 
    
   // 批量删除
@@ -109,6 +111,10 @@ class OrderPage extends React.Component {
   };
 
 
+
+  
+
+
   // 将子组件的引用在父组件中进行保存，方便后期调用
   saveFormRef = formRef => {
     this.formRef = formRef;
@@ -161,7 +167,8 @@ class OrderPage extends React.Component {
           <div>
             <Button type='link' size="small" onClick={this.handleDelete.bind(this,record.id)}>删除</Button>
             <Button type='link' size="small" onClick={this.toEdit.bind(this,record)}>修改</Button>
-          </div>
+        </div>
+
         )
       }
     }]

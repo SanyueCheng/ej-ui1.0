@@ -2,6 +2,12 @@ import React from 'react';
 import {Form,Modal,Input,Upload,Button,Icon,message} from 'antd'
 
 class CustomerForm extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      categories:[]
+    }
+  }
 
   render(){
     const formLayout = {
@@ -17,6 +23,8 @@ class CustomerForm extends React.Component {
     // 父组件传递给子组件值
     const { visible, onCancel, onCreate, form } = this.props;
     const { getFieldDecorator } = form;
+
+    // 定义上传组件的参数
     const upload_props =  {
       name: 'file',
       action: 'http://134.175.154.93:8099/manager/file/upload',
@@ -42,6 +50,8 @@ class CustomerForm extends React.Component {
         }
       },
     };
+
+
     // 将表单中没有出现的值做一个双向数据绑定
     getFieldDecorator("id");
     getFieldDecorator("status");

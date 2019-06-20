@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form,Modal,Input,Icon} from 'antd'
+import {Form,Modal,Input} from 'antd'
 
 class WaiterForm extends React.Component {
 

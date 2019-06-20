@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button,Tabs, Table} from 'antd'
+import {Button,Tabs} from 'antd'
 import axios from '../utils/axios';
 
 class CustomerDetails extends React.Component {
@@ -64,12 +64,10 @@ class CustomerDetails extends React.Component {
             <img alt="图片找不到..." src={this.state.customer.photo}/>
           </TabPane>
           <TabPane tab="服务地址" key="2">
-          {JSON.stringify(this.state.address)}
-          
- 
+           
           </TabPane>
           <TabPane tab="订单" key="3">
-            {JSON.stringify(this.state.orders)}
+         
           </TabPane>
         </Tabs>
         <Button type="link" onClick={()=>{this.props.history.goBack()}}>返回</Button>

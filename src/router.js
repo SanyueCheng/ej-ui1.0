@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Router, Route, Switch, Link } from 'dva/router';
 import IndexPage from './routes/IndexPage';

@@ -7,7 +7,6 @@ import axios from '../utils/axios'
 import CustomerForm from './CustomerForm'
 const Search = Input.Search;
 
-
 // 组件类必须要继承React.Component，是一个模块，顾客管理子功能
 class CustomerPage extends React.Component {
   // 局部状态state
@@ -21,13 +20,10 @@ class CustomerPage extends React.Component {
       customer:{}
     }
   }
-
-
   // 在生命周期钩子函数中调用重载数据
   componentDidMount(){
     this.reloadData();
   }
-
 
   // 重载数据
   reloadData(){
@@ -41,9 +37,6 @@ class CustomerPage extends React.Component {
       this.setState({loading:false});
     })
   }
-
-  
-
   // 批量删除
   handleBatchDelete(){
     Modal.confirm({
@@ -59,7 +52,6 @@ class CustomerPage extends React.Component {
       }
     });
   }
-
 
   // 单个删除
   handleDelete(id){
@@ -99,8 +91,6 @@ class CustomerPage extends React.Component {
   handleCancel = () => {
     this.setState({ visible: false });
   };
-
-
   // 确认按钮的事件处理函数
   handleCreate = () => {
     const form = this.formRef.props.form;
@@ -122,8 +112,6 @@ class CustomerPage extends React.Component {
       
     });
   };
-
-
   // 将子组件的引用在父组件中进行保存，方便后期调用
   saveFormRef = formRef => {
     this.formRef = formRef;
@@ -148,9 +136,6 @@ class CustomerPage extends React.Component {
       payload:record
     })
   }
-  
-
-
   // 组件类务必要重写的方法，表示页面渲染
   render(){
     // 变量定义
@@ -175,7 +160,7 @@ class CustomerPage extends React.Component {
       }
     },{
       title:'操作',
-      width:120,
+      width:170,
       align:"center",
       render:(text,record)=>{
         return (
@@ -201,7 +186,6 @@ class CustomerPage extends React.Component {
       }),
     };
     
-
     // 返回结果 jsx(js + xml)
     return (
       <div className={styles.customer}>
@@ -235,12 +219,7 @@ class CustomerPage extends React.Component {
           visible={this.state.visible}
           onCancel={this.handleCancel}
           onCreate={this.handleCreate}/>
-
-        
-        
       </div>
-
-      
     )
   }
 }

@@ -140,9 +140,6 @@ class CategoryPage extends React.Component {
       title:'数量',
       dataIndex:'num'
     },{
-        title:'父类ID',
-        dataIndex:'parentId'
-      },{
       title:'操作',
       width:120,
       align:"center",
